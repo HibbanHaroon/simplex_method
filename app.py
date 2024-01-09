@@ -37,13 +37,15 @@ def maximize_profit():
         "\n- Non-negativity constraint: &nbsp;&nbsp;&nbsp;&nbsp; $x, y >= 0$"
     )
 
-    # Solve the linear programming problem
-    c = [-20, -30]  # Objective function coefficients
+    # Solving the linear programming
+    # Objective function coefficients
+    c = [-20, -30]  
     A = [
         [2, 3],  # Labor constraint coefficients
         [1, 2]   # Raw material constraint coefficients
     ]
-    b = [100, 60]  # Available resources
+    # Available resources
+    b = [100, 60]  
     result = linprog(c, A_ub=A, b_ub=b, bounds=(0, None), method='highs')
 
     if result.success:
@@ -83,13 +85,11 @@ def maximize_profit():
     # Highlight the optimal solution
     plt.scatter(result.x[0], result.x[1], color='red', label='Optimal Solution')
 
-    # Set labels and title
     plt.xlabel('Number of Chairs (x)')
     plt.ylabel('Number of Tables (y)')
     plt.title('Optimal Solution and Constraints Visualization')
     plt.legend()
 
-    # Show plot using Streamlit
     st.pyplot(plt)
     st.write("Both the equations intersects at the optimal solution which is 20 no. of chairs on x-axis and 20 no. of tables on y-axis")
 
