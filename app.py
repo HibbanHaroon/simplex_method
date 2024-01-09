@@ -94,6 +94,8 @@ def maximize_profit():
     st.write("Both the equations intersects at the optimal solution which is 20 no. of chairs on x-axis and 20 no. of tables on y-axis")
 
 def main():
+    st.set_page_config(page_title="Simplex Method", page_icon="📕")
+
     st.title("Linear Programming and Simplex Method")
 
     st.subheader("Linear Programming")
